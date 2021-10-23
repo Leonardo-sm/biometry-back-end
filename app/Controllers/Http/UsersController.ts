@@ -1,10 +1,9 @@
-import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
-import path from "path";
-import { projectPath } from 'projectPath';
+import Database from '@ioc:Adonis/Lucid/Database'
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class UsersController {
-    public async index({params, response}:HttpContextContract){
-
-        return {image: path.join(projectPath, `/static/images`), levelaccess: "admin"}
-    }
+  public async index({ params }: HttpContextContract) {
+    const user = await Database.query().select('*').from('users').where('email', params.email)
+    return user
+  }
 }

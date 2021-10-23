@@ -1,13 +1,13 @@
+import Database from '@ioc:Adonis/Lucid/Database'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-import { data } from "../../../data/pesticide";
-
 export default class MinistersController {
-    public async index({params, response}:HttpContextContract){
-        if(params.id === "minister"){
-            return await data;
-        } else{
-            response.status(401);
-        }
+  public async index({ params, response }: HttpContextContract) {
+    if (params.permission === 'minister') {
+      const data = await Database.query().from('pesticides').select('*')
+      return data
+    } else {
+      response.status(401)
     }
+  }
 }

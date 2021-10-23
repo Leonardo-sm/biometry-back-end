@@ -1,12 +1,13 @@
+import Database from '@ioc:Adonis/Lucid/Database'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { data } from "../../../data/supervisor";
 
 export default class AdmsController {
-    public async index({params, response}:HttpContextContract){
-        if(params.id === "admin" || params.id === "minister"){
-            return await data;
-        } else{
-            response.status(401);
-        }
+  public async index({ params, response }: HttpContextContract) {
+    if (params.permission === 'admin' || params.permission === 'minister') {
+      const data = await Database.query().from('supervisors').select('*')
+      return data
+    } else {
+      response.status(401)
     }
+  }
 }
