@@ -3,19 +3,18 @@ import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 export default class Supervisors extends BaseSchema {
   protected tableName = 'supervisors'
 
-  public async up () {
+  public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
+      table.string('name')
+      table.string('category')
+      table.string('description')
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })
   }
 
-  public async down () {
+  public async down() {
     this.schema.dropTable(this.tableName)
   }
 }

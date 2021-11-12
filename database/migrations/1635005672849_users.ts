@@ -6,13 +6,9 @@ export default class Users extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.string('name')
-      table.json('products')
-      table.string('adress')
-      table.integer('annualProduction')
-      table.string('destiny')
-      table.integer('employees')
-      table.integer('automationLevel')
+      table.string('email')
+      table.string('permission')
+      table.string('image_path')
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

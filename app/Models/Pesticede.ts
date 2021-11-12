@@ -1,5 +1,6 @@
-import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+
+import { DateTime } from 'luxon'
 
 export default class Pesticede extends BaseModel {
   @column({ isPrimary: true })
@@ -10,4 +11,16 @@ export default class Pesticede extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @column()
+  public name: string
+
+  @column()
+  public use: string
+
+  @column()
+  public status: string
+
+  @column()
+  public description: string
 }

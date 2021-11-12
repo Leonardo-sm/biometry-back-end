@@ -7,12 +7,12 @@ export default class UserSeeder extends BaseSeeder {
       {
         email: 'minister@biometry.com',
         permission: 'minister',
-        image_path: '',
+        image_path: 'minister_bio.png',
       },
       {
         email: 'admin@biometry.com',
         permission: 'admin',
-        image_path: '',
+        image_path: 'admin_bio.png',
       },
     ])
   }

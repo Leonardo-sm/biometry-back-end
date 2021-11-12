@@ -16,7 +16,7 @@ export default class Agricula extends BaseModel {
   public adress: string
 
   @column()
-  public annualProduction: number
+  public annualProduction: string
 
   @column()
   public destiny: string
@@ -25,7 +25,7 @@ export default class Agricula extends BaseModel {
   public employees: number
 
   @column()
-  public automationLevel: number
+  public automationLevel: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
